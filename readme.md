@@ -21,13 +21,14 @@ plugins {
 ```
 
 ## More verbose test logs
+
 This plugin configures test tasks as we all did multiple times in countless projects:
+
 ```gradle
 tasks.withType(Test) {
     testLogging {
         exceptionFormat = 'full'
         events = ['passed', 'skipped', 'failed']
-        showStandardStreams = true
     }
 }
 ```
