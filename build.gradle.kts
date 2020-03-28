@@ -1,12 +1,13 @@
 import pl.allegro.tech.build.axion.release.domain.hooks.HookContext
 import pl.allegro.tech.build.axion.release.domain.hooks.HooksConfig
+import pl.allegro.tech.build.axion.release.domain.scm.ScmPosition
 
 plugins {
     kotlin("jvm") version "1.3.70"
     id("jacoco")
     id("pl.allegro.tech.build.axion-release") version "1.11.0"
     id("com.github.kt3k.coveralls") version "2.10.1"
-    id("com.gradle.plugin-publish") version "0.10.1"
+    id("com.gradle.plugin-publish") version "0.11.0"
     id("java-gradle-plugin")
     id("maven-publish")
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
@@ -26,18 +27,17 @@ dependencies {
     implementation(gradleApi())
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-    implementation("com.coditory.gradle:manifest-plugin:0.1.0")
-    implementation("com.coditory.gradle:integration-test-plugin:1.1.1")
+    implementation("com.coditory.gradle:manifest-plugin:0.1.5")
+    implementation("com.coditory.gradle:integration-test-plugin:1.1.4")
 
     testImplementation("org.assertj:assertj-core:3.15.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.6.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.6.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.1")
 }
 
 scmVersion {
     versionCreator("versionWithBranch")
-    tag.prefix = project.name
     hooks = HooksConfig().also {
         it.pre(
             "fileUpdate",
@@ -47,7 +47,7 @@ scmVersion {
                 "replacement" to KotlinClosure2<String, HookContext, String>({ v, _ -> v })
             )
         )
-        it.pre("commit")
+        it.pre("commit", KotlinClosure2<String, ScmPosition, String>({ v, _ -> "Release: $v [ci skip]" }))
     }
 }
 
