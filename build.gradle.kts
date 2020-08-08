@@ -6,11 +6,11 @@ plugins {
     kotlin("jvm") version "1.3.72"
     id("jacoco")
     id("pl.allegro.tech.build.axion-release") version "1.11.0"
-    id("com.github.kt3k.coveralls") version "2.10.1"
-    id("com.gradle.plugin-publish") version "0.11.0"
+    id("com.github.kt3k.coveralls") version "2.10.2"
+    id("com.gradle.plugin-publish") version "0.12.0"
     id("java-gradle-plugin")
     id("maven-publish")
-    id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
+    id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
 }
 
 repositories {
@@ -19,8 +19,7 @@ repositories {
 }
 
 ktlint {
-    version.set("0.36.0")
-    enableExperimentalRules.set(true)
+    version.set("0.37.2")
 }
 
 dependencies {
@@ -28,7 +27,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     implementation("com.coditory.gradle:manifest-plugin:0.1.6")
-    implementation("com.coditory.gradle:integration-test-plugin:1.1.6")
+    implementation("com.coditory.gradle:integration-test-plugin:1.1.8")
 
     testImplementation("org.assertj:assertj-core:3.16.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
