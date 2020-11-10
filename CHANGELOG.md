@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.7] - 2020-10-10
+### Changed
+- Update dependencies and migrate to GitHub Actions.
+
 ## [0.1.6] - 2020-08-18
 ### Changed
 - Update manifest plugin.
