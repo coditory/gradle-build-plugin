@@ -1,9 +1,8 @@
 # Build Gradle Plugin
-
-[![Join the chat at https://gitter.im/coditory/gradle-build-plugin](https://badges.gitter.im/coditory/gradle-build-plugin.svg)](https://gitter.im/coditory/gradle-integration-test-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.com/coditory/gradle-build-plugin.svg?branch=master)](https://travis-ci.com/coditory/gradle-build-plugin)
-[![Coverage Status](https://coveralls.io/repos/github/coditory/gradle-build-plugin/badge.svg)](https://coveralls.io/github/coditory/gradle-build-plugin)
+[![Build Status](https://github.com/coditory/gradle-build-plugin/workflows/Build/badge.svg?branch=master)](https://github.com/coditory/gradle-build-plugin/actions?query=workflow%3ABuild+branch%3Amaster)
+[![Coverage Status](https://coveralls.io/repos/github/coditory/gradle-build-plugin/badge.svg?branch=master)](https://coveralls.io/github/coditory/gradle-build-plugin?branch=master)
 [![Gradle Plugin Portal](https://img.shields.io/badge/Plugin_Portal-v0.1.6-green.svg)](https://plugins.gradle.org/plugin/com.coditory.build)
+[![Join the chat at https://gitter.im/coditory/gradle-build-plugin](https://badges.gitter.im/coditory/gradle-build-plugin.svg)](https://gitter.im/coditory/gradle-integration-test-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This plugin adds typical build configuration for JVM projects:
 - [manifest generation](https://github.com/coditory/gradle-manifest-plugin)

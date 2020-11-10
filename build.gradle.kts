@@ -1,16 +1,13 @@
-import pl.allegro.tech.build.axion.release.domain.hooks.HookContext
-import pl.allegro.tech.build.axion.release.domain.hooks.HooksConfig
-import pl.allegro.tech.build.axion.release.domain.scm.ScmPosition
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.72"
     id("jacoco")
-    id("pl.allegro.tech.build.axion-release") version "1.11.0"
     id("com.github.kt3k.coveralls") version "2.10.2"
     id("com.gradle.plugin-publish") version "0.12.0"
     id("java-gradle-plugin")
     id("maven-publish")
-    id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
+    id("org.jlleitschuh.gradle.ktlint") version "9.4.1"
 }
 
 repositories {
@@ -19,59 +16,48 @@ repositories {
 }
 
 ktlint {
-    version.set("0.37.2")
+    version.set("0.39.0")
 }
 
 dependencies {
     implementation(gradleApi())
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-    implementation("com.coditory.gradle:manifest-plugin:0.1.8")
-    implementation("com.coditory.gradle:integration-test-plugin:1.1.8")
+    implementation("com.coditory.gradle:manifest-plugin:0.1.9")
+    implementation("com.coditory.gradle:integration-test-plugin:1.1.9")
 
-    testImplementation("org.assertj:assertj-core:3.16.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.6.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
-}
-
-scmVersion {
-    versionCreator("versionWithBranch")
-    hooks = HooksConfig().also {
-        it.pre(
-            "fileUpdate",
-            mapOf(
-                "files" to listOf("readme.md") as Any,
-                "pattern" to KotlinClosure2<String, HookContext, String>({ v, _ -> v }),
-                "replacement" to KotlinClosure2<String, HookContext, String>({ v, _ -> v })
-            )
-        )
-        it.pre("commit", KotlinClosure2<String, ScmPosition, String>({ v, _ -> "Release: $v [ci skip]" }))
-    }
+    testImplementation("org.assertj:assertj-core:3.18.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
 }
 
 group = "com.coditory.gradle"
-version = scmVersion.version
 
-tasks {
-    withType<Test> {
-        testLogging {
-            events("passed", "failed", "skipped")
-            setExceptionFormat("full")
-        }
+tasks.withType<Test> {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "failed", "skipped")
+        setExceptionFormat("full")
     }
-    withType<Test> {
-        useJUnitPlatform()
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "11"
+        allWarningsAsErrors = true
     }
-    jacocoTestReport {
-        reports {
-            xml.isEnabled = true
-            html.isEnabled = true
-        }
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.isEnabled = true
+        html.isEnabled = true
     }
-    coveralls {
-        sourceDirs = listOf("src/main/kotlin")
-    }
+}
+
+coveralls {
+    sourceDirs = listOf("src/main/kotlin")
 }
 
 gradlePlugin {
@@ -83,15 +69,11 @@ gradlePlugin {
     }
 }
 
-// Marking new version (incrementPatch [default], incrementMinor, incrementMajor)
-// ./gradlew markNextVersion -Prelease.incrementer=incrementMinor
-// Releasing the plugin:
-// ./gradlew release && ./gradlew publishPlugins
 pluginBundle {
     website = "https://github.com/coditory/gradle-build-plugin"
     vcsUrl = "https://github.com/coditory/gradle-build-plugin"
     description = "Contains standard configuration for java based projects"
-    tags = listOf("java build additional configuration")
+    tags = listOf("java build")
 
     (plugins) {
         "buildPlugin" {

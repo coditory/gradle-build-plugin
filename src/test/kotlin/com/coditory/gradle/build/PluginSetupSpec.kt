@@ -1,7 +1,7 @@
 package com.coditory.gradle.build
 
-import com.coditory.gradle.integration.IntegrationTestPlugin
 import com.coditory.gradle.build.base.SpecProjectBuilder.Companion.projectWithPlugins
+import com.coditory.gradle.integration.IntegrationTestPlugin
 import com.coditory.gradle.manifest.ManifestPlugin
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
