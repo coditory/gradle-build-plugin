@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.8] - 2020-10-14
+### Changed
+- Update integration-test-plugin to v1.1.10.
+
 ## [0.1.7] - 2020-10-10
 ### Changed
 - Update dependencies and migrate to GitHub Actions.

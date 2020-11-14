@@ -24,7 +24,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     implementation("com.coditory.gradle:manifest-plugin:0.1.9")
-    implementation("com.coditory.gradle:integration-test-plugin:1.1.9")
+    implementation("com.coditory.gradle:integration-test-plugin:1.1.10")
 
     testImplementation("org.assertj:assertj-core:3.18.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
