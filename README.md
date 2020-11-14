@@ -26,6 +26,7 @@ Configures test tasks to produce some output:
 ```gradle
 tasks.withType(Test) {
     testLogging {
+        useJUnitPlatform()
         exceptionFormat = 'full'
         events = ['passed', 'skipped', 'failed']
     }

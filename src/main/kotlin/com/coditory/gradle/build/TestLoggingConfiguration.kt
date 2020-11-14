@@ -10,6 +10,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 internal object TestLoggingConfiguration {
     fun configure(project: Project) {
         project.tasks.withType(Test::class.java) { task ->
+            task.useJUnitPlatform()
             task.testLogging {
                 it.exceptionFormat = FULL
                 it.events = setOf(PASSED, SKIPPED, FAILED)
