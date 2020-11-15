@@ -19,9 +19,19 @@ plugins {
 }
 ```
 
+## Maven central as the default repository
+
+Adds maven central as the default repository:
+
+```gradle
+repositories {
+    mavenCentral()
+}
+```
+
 ## More verbose test logs
 
-Configures test tasks to produce some output:
+Configures test tasks to produce the same output as following:
 
 ```gradle
 tasks.withType(Test) {

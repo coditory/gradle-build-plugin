@@ -18,6 +18,7 @@ open class BuildPlugin : Plugin<Project> {
         project.plugins.apply(ManifestPlugin::class.java)
         project.plugins.apply(IntegrationTestPlugin::class.java)
         TestLoggingConfiguration.configure(project)
+        DefaultRepositoryConfiguration.configure(project)
     }
 
     companion object {
