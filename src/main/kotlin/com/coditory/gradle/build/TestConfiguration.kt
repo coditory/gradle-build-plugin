@@ -7,7 +7,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
-internal object TestLoggingConfiguration {
+internal object TestConfiguration {
     fun configure(project: Project) {
         project.tasks.withType(Test::class.java) { task ->
             task.useJUnitPlatform()

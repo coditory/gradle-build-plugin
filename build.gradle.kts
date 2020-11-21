@@ -25,7 +25,9 @@ dependencies {
     implementation(kotlin("reflect"))
     implementation("com.coditory.gradle:manifest-plugin:0.1.9")
     implementation("com.coditory.gradle:integration-test-plugin:1.1.11")
+    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
 
+    testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
     testImplementation("org.assertj:assertj-core:3.18.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.7.0")

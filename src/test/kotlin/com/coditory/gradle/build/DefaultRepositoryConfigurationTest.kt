@@ -1,17 +1,14 @@
 package com.coditory.gradle.build
 
-import com.coditory.gradle.build.base.SpecProjectBuilder.Companion.projectWithPlugins
+import com.coditory.gradle.build.base.TestProjectBuilder.Companion.createProjectWithPlugins
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ConfigureDefaultRepositorySpec {
+internal class DefaultRepositoryConfigurationTest {
     @Test
     fun `should configure maven central as a default repository`() {
         // given
-        val project = projectWithPlugins("sample-project")
-            .withGroup("com.coditory")
-            .withVersion("0.0.1-SNAPSHOT")
-            .build()
+        val project = createProjectWithPlugins()
 
         // expect
         val repositories = project.repositories

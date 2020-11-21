@@ -4,10 +4,10 @@
 [![Gradle Plugin Portal](https://img.shields.io/badge/Plugin_Portal-v0.1.10-green.svg)](https://plugins.gradle.org/plugin/com.coditory.build)
 [![Join the chat at https://gitter.im/coditory/gradle-build-plugin](https://badges.gitter.im/coditory/gradle-build-plugin.svg)](https://gitter.im/coditory/gradle-integration-test-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This plugin adds typical build configuration for JVM projects:
-- [manifest generation](https://github.com/coditory/gradle-manifest-plugin)
-- [integration tests](https://github.com/coditory/gradle-integration-test-plugin)
-- sets up more verbose test logs
+This plugin applies a typical configuration for Coditory JVM projects:
+- Adds [manifest generation](https://github.com/coditory/gradle-manifest-plugin)
+- Adds [integration tests](https://github.com/coditory/gradle-integration-test-plugin)
+- Sets up some [reasonable defaults](#add-reasonable-defaults) for java projects
 
 ## Enabling the plugin
 
@@ -19,26 +19,63 @@ plugins {
 }
 ```
 
-## Maven central as the default repository
+## Add reasonable defaults
 
 Adds maven central as the default repository:
 
 ```gradle
+// add a default repository
 repositories {
     mavenCentral()
 }
-```
 
-## More verbose test logs
-
-Configures test tasks to produce the same output as following:
-
-```gradle
+// enable junit and produce logs for tests
 tasks.withType(Test) {
+    useJUnitPlatform()
     testLogging {
-        useJUnitPlatform()
         exceptionFormat = 'full'
         events = ['passed', 'skipped', 'failed']
+    }
+}
+
+tasks.withType(JavaCompile) {
+    // make all test/main builds use UTF-8
+    options.encoding = 'UTF-8'
+    // produce error on lint problems
+    options.compilerArgs << "-Werror"
+    options.compilerArgs << "-Xlint"
+    options.compilerArgs << "-Xlint:-serial"
+}
+
+tasks.withType(GroovyCompile) {
+    // make all test/main builds use UTF-8
+    groovyOptions.encoding = 'UTF-8'
+}
+
+tasks.withType(KotlinCompile) {
+    // by default target newest LTS JVM
+    kotlinOptions.jvmTarget = "11"
+    // produce errors on warnings
+    kotlinOptions.allWarningsAsErrors = true
+}
+
+// make Jacoco report combine all types of tests
+jacocoTestReport {
+    executionData(fileTree(project.buildDir).include("jacoco/*.exec"))
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+// defaults for Javadoc
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compileClasspath
+    failOnError = false
+    options {
+        memberLevel = JavadocMemberLevel.PUBLIC
+        encoding = 'UTF-8'
     }
 }
 ```

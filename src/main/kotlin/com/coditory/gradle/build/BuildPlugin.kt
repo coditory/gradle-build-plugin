@@ -17,8 +17,11 @@ open class BuildPlugin : Plugin<Project> {
     private fun setupPlugin(project: Project) {
         project.plugins.apply(ManifestPlugin::class.java)
         project.plugins.apply(IntegrationTestPlugin::class.java)
-        TestLoggingConfiguration.configure(project)
+        TestConfiguration.configure(project)
         DefaultRepositoryConfiguration.configure(project)
+        CompilationConfiguration.configure(project)
+        JavadocConfiguration.configure(project)
+        JacocoConfiguration.configure(project)
     }
 
     companion object {
