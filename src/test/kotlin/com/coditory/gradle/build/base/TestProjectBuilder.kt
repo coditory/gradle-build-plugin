@@ -3,17 +3,19 @@ package com.coditory.gradle.build.base
 import com.coditory.gradle.build.BuildPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.internal.project.DefaultProject
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.testfixtures.ProjectBuilder
 import java.io.File
 import java.nio.file.Files
+import kotlin.io.path.createTempDirectory
 import kotlin.reflect.KClass
 
 class TestProjectBuilder private constructor(projectDir: File, name: String) {
     private val project = ProjectBuilder.builder()
         .withProjectDir(projectDir)
         .withName(name)
-        .build()
+        .build() as DefaultProject
 
     fun withGroup(group: String): TestProjectBuilder {
         project.group = group
@@ -22,6 +24,11 @@ class TestProjectBuilder private constructor(projectDir: File, name: String) {
 
     fun withVersion(version: String): TestProjectBuilder {
         project.version = version
+        return this
+    }
+
+    fun withExtProperty(name: String, value: String): TestProjectBuilder {
+        project.extensions.extraProperties[name] = value
         return this
     }
 
@@ -53,16 +60,19 @@ class TestProjectBuilder private constructor(projectDir: File, name: String) {
     }
 
     fun build(): Project {
+        project.evaluate()
         return project
     }
 
     companion object {
         private var projectDirs = mutableListOf<File>()
 
+        fun createProject(): Project {
+            return projectWithPlugins().build()
+        }
+
         fun project(name: String = "sample-project"): TestProjectBuilder {
             return TestProjectBuilder(createProjectDir(name), name)
-                .withGroup("com.coditory")
-                .withVersion("0.1.0-SNAPSHOT")
         }
 
         fun projectWithPlugins(name: String = "sample-project"): TestProjectBuilder {
@@ -70,22 +80,17 @@ class TestProjectBuilder private constructor(projectDir: File, name: String) {
                 .withPlugins(JavaPlugin::class, BuildPlugin::class)
         }
 
-        fun createProjectWithPlugins(name: String = "sample-project"): Project {
-            return project(name)
-                .withPlugins(JavaPlugin::class, BuildPlugin::class)
-                .build()
-        }
-
-        private fun createProjectDir(projectName: String): File {
+        @Suppress("EXPERIMENTAL_API_USAGE_ERROR")
+        private fun createProjectDir(directory: String): File {
             removeProjectDirs()
-            val projectParentDir = createTempDir()
-            val projectDir = projectParentDir.resolve(projectName)
+            val projectParentDir = createTempDirectory().toFile()
+            val projectDir = projectParentDir.resolve(directory)
             projectDir.mkdir()
-            projectDirs.add(projectDir)
+            projectDirs.add(projectParentDir)
             return projectDir
         }
 
-        fun removeProjectDirs() {
+        private fun removeProjectDirs() {
             projectDirs.forEach {
                 it.deleteRecursively()
             }

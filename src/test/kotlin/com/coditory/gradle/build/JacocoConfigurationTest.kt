@@ -12,17 +12,19 @@ internal class JacocoConfigurationTest {
         // given
         val project = projectWithPlugins()
             .withPlugins(JacocoPlugin::class)
+            .withFile("build/jacoco/other.exec", "Some content")
             .build()
 
         // expect
-        project.afterEvaluate {
-            val tasks = project.tasks.withType(JacocoReport::class.java).toList()
-            assertThat(tasks).isNotEmpty
-            tasks.forEach {
-                assertThat(it.reports.xml.isEnabled).isEqualTo(true)
-                assertThat(it.reports.html.isEnabled).isEqualTo(true)
-                assertThat(it.executionData).isEqualTo(project.fileTree(project.buildDir).include("jacoco/*.exec"))
-            }
+        val tasks = project.tasks.withType(JacocoReport::class.java).toList()
+        assertThat(tasks).isNotEmpty
+        tasks.forEach {
+            assertThat(it.reports.xml.isEnabled).isEqualTo(true)
+            assertThat(it.reports.html.isEnabled).isEqualTo(true)
+            assertThat(it.executionData.files).contains(
+                project.buildDir.resolve("jacoco/test.exec"),
+                project.buildDir.resolve("jacoco/other.exec")
+            )
         }
     }
 }

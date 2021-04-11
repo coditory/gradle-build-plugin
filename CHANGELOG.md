@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.12] - 2021-04-11
+### Changed
+- Updated dependencies for Gradle v7
+
 ## [0.1.11] - 2020-10-21
 ### Added
 - Add default compilation settings for java, groovy, kotlin
@@ -31,7 +35,8 @@
 ### Changed
 - Update manifest plugin.
 
-[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.11...HEAD
+[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.12...HEAD
+[0.1.12]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.11...v0.1.12
 [0.1.11]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.10...v0.1.11
 [0.1.10]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.8...v0.1.9

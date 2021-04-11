@@ -1,6 +1,6 @@
 package com.coditory.gradle.build
 
-import com.coditory.gradle.build.base.TestProjectBuilder.Companion.createProjectWithPlugins
+import com.coditory.gradle.build.base.TestProjectBuilder.Companion.createProject
 import org.assertj.core.api.Assertions.assertThat
 import org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestFramework
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
@@ -13,7 +13,7 @@ internal class TestConfigurationTest {
     @Test
     fun `should configure test logging`() {
         // given
-        val project = createProjectWithPlugins()
+        val project = createProject()
         val testTasks = project.tasks.withType(org.gradle.api.tasks.testing.Test::class.java)
 
         // expect
@@ -28,7 +28,7 @@ internal class TestConfigurationTest {
     @Test
     fun `should configure test plugin to use junit platform`() {
         // given
-        val project = createProjectWithPlugins()
+        val project = createProject()
         val testTasks = project.tasks.withType(org.gradle.api.tasks.testing.Test::class.java)
 
         // expect

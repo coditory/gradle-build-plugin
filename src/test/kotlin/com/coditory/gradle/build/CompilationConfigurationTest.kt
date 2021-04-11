@@ -1,6 +1,6 @@
 package com.coditory.gradle.build
 
-import com.coditory.gradle.build.base.TestProjectBuilder.Companion.createProjectWithPlugins
+import com.coditory.gradle.build.base.TestProjectBuilder.Companion.createProject
 import com.coditory.gradle.build.base.TestProjectBuilder.Companion.projectWithPlugins
 import org.assertj.core.api.Assertions.assertThat
 import org.gradle.api.plugins.GroovyPlugin
@@ -14,7 +14,7 @@ internal class CompilationConfigurationTest {
     @Test
     fun `should configure java compilation`() {
         // given
-        val project = createProjectWithPlugins()
+        val project = createProject()
 
         // expect
         val tasks = project.tasks.withType(JavaCompile::class.java).toList()
