@@ -1,7 +1,7 @@
 # Build Gradle Plugin
 [![Build Status](https://github.com/coditory/gradle-build-plugin/workflows/Build/badge.svg?branch=master)](https://github.com/coditory/gradle-build-plugin/actions?query=workflow%3ABuild+branch%3Amaster)
 [![Coverage Status](https://coveralls.io/repos/github/coditory/gradle-build-plugin/badge.svg?branch=master)](https://coveralls.io/github/coditory/gradle-build-plugin?branch=master)
-[![Gradle Plugin Portal](https://img.shields.io/badge/Plugin_Portal-v0.1.11-green.svg)](https://plugins.gradle.org/plugin/com.coditory.build)
+[![Gradle Plugin Portal](https://img.shields.io/badge/Plugin_Portal-v0.1.12-green.svg)](https://plugins.gradle.org/plugin/com.coditory.build)
 [![Join the chat at https://gitter.im/coditory/gradle-build-plugin](https://badges.gitter.im/coditory/gradle-build-plugin.svg)](https://gitter.im/coditory/gradle-integration-test-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This plugin applies a typical configuration for Coditory JVM projects:
@@ -15,7 +15,7 @@ Add to your `build.gradle`:
 
 ```gradle
 plugins {
-  id 'com.coditory.build' version '0.1.11'
+  id 'com.coditory.build' version '0.1.12'
 }
 ```
 
