@@ -75,6 +75,7 @@ javadoc {
     failOnError = false
     options {
         memberLevel = JavadocMemberLevel.PUBLIC
+        outputLevel = JavadocOutputLevel.QUIET
         encoding = 'UTF-8'
     }
 }

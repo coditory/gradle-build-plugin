@@ -4,6 +4,7 @@ import com.coditory.gradle.build.base.TestProjectBuilder.Companion.createProject
 import org.assertj.core.api.Assertions.assertThat
 import org.gradle.api.tasks.javadoc.Javadoc
 import org.gradle.external.javadoc.JavadocMemberLevel.PUBLIC
+import org.gradle.external.javadoc.JavadocOutputLevel.QUIET
 import org.junit.jupiter.api.Test
 
 internal class JavadocConfigurationTest {
@@ -19,6 +20,7 @@ internal class JavadocConfigurationTest {
             assertThat(it.isFailOnError).isEqualTo(false)
             assertThat(it.options.encoding).isEqualTo("UTF-8")
             assertThat(it.options.memberLevel).isEqualTo(PUBLIC)
+            assertThat(it.options.outputLevel).isEqualTo(QUIET)
         }
     }
 }

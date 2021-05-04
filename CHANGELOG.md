@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.13] - 2021-05-04
+### Changed
+- Use quiet Java Doc output level
+
 ## [0.1.12] - 2021-04-11
 ### Changed
 - Updated dependencies for Gradle v7

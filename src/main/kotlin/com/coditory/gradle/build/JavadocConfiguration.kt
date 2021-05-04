@@ -5,6 +5,7 @@ import org.gradle.api.plugins.JavaPluginConvention
 import org.gradle.api.tasks.SourceSet
 import org.gradle.api.tasks.javadoc.Javadoc
 import org.gradle.external.javadoc.JavadocMemberLevel
+import org.gradle.external.javadoc.JavadocOutputLevel
 
 internal object JavadocConfiguration {
     fun configure(project: Project) {
@@ -15,6 +16,7 @@ internal object JavadocConfiguration {
                 it.classpath = main.compileClasspath
                 it.source = main.allJava
                 it.isFailOnError = false
+                it.options.outputLevel = JavadocOutputLevel.QUIET
                 it.options.memberLevel = JavadocMemberLevel.PUBLIC
                 it.options.encoding = "UTF-8"
             }
