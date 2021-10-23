@@ -45,12 +45,12 @@
 - Update manifest plugin.
 
 [Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.14...HEAD
-[0.1.14]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.14
-[0.1.13]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.13
-[0.1.12]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.12
-[0.1.11]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.11
-[0.1.10]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.10
-[0.1.9]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.9
-[0.1.8]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.8
-[0.1.7]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.7
-[0.1.6]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.6
+[0.1.14]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14
+[0.1.13]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.13
+[0.1.12]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.12
+[0.1.11]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.11
+[0.1.10]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.10
+[0.1.9]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.9
+[0.1.8]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.8
+[0.1.7]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.7
+[0.1.6]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.6
