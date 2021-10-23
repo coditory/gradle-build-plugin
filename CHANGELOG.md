@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.14] - 2021-11-24
+### Changed
+- Fix jacocoReport when project does not have unit tests
+- Update dependencies
+
 ## [0.1.13] - 2021-05-04
 ### Changed
 - Use quiet Java Doc output level
@@ -39,11 +44,13 @@
 ### Changed
 - Update manifest plugin.
 
-[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.12...HEAD
-[0.1.12]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.11...v0.1.12
-[0.1.11]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.10...v0.1.11
-[0.1.10]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.9...v0.1.10
-[0.1.9]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.8...v0.1.9
-[0.1.8]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.7...v0.1.8
-[0.1.7]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.6...v0.1.7
-[0.1.6]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.5...v0.1.6
+[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.14...HEAD
+[0.1.14]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.14
+[0.1.13]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.13
+[0.1.12]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.12
+[0.1.11]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.11
+[0.1.10]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.10
+[0.1.9]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.9
+[0.1.8]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.8
+[0.1.7]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.7
+[0.1.6]: https://github.com/coditory/gradle-build-plugin/tag/v0.1.6

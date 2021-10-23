@@ -20,8 +20,8 @@ internal class JacocoConfigurationTest {
         val tasks = project.tasks.withType(JacocoReport::class.java).toList()
         assertThat(tasks).isNotEmpty
         tasks.forEach {
-            assertThat(it.reports.xml.isEnabled).isEqualTo(true)
-            assertThat(it.reports.html.isEnabled).isEqualTo(true)
+            assertThat(it.reports.xml.required.get()).isEqualTo(true)
+            assertThat(it.reports.html.required.get()).isEqualTo(true)
             assertThat(it.executionData.files).contains(
                 project.buildDir.resolve("jacoco/test.exec"),
                 project.buildDir.resolve("jacoco/other.exec")

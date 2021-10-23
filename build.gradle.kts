@@ -1,13 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.31"
+    kotlin("jvm") version "1.5.21"
     id("jacoco")
     id("com.github.kt3k.coveralls") version "2.12.0"
-    id("com.gradle.plugin-publish") version "0.14.0"
+    id("com.gradle.plugin-publish") version "0.16.0"
     id("java-gradle-plugin")
     id("maven-publish")
-    id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
 }
 
 repositories {
@@ -16,20 +16,20 @@ repositories {
 }
 
 ktlint {
-    version.set("0.41.0")
+    version.set("0.42.1")
 }
 
 dependencies {
     implementation(gradleApi())
     implementation("com.coditory.gradle:manifest-plugin:0.1.14")
-    implementation("com.coditory.gradle:integration-test-plugin:1.2.0")
+    implementation("com.coditory.gradle:integration-test-plugin:1.3.0")
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
 
     testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
-    testImplementation("org.assertj:assertj-core:3.19.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.7.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
+    testImplementation("org.assertj:assertj-core:3.21.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 }
 
 group = "com.coditory.gradle"
