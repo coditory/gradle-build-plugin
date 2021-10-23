@@ -8,7 +8,7 @@ internal object JacocoConfiguration {
         project.afterEvaluate {
             project.tasks.withType(JacocoReport::class.java) {
                 if (it.name == "jacocoTestReport") {
-                    it.executionData(project.fileTree(project.buildDir).include("jacoco/*.exec"))
+                    it.executionData.setFrom(project.fileTree(project.buildDir).include("/jacoco/*.exec"))
                     it.reports.xml.isEnabled = true
                     it.reports.html.isEnabled = true
                 }

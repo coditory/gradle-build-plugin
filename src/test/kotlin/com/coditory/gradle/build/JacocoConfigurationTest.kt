@@ -12,7 +12,8 @@ internal class JacocoConfigurationTest {
         // given
         val project = projectWithPlugins()
             .withPlugins(JacocoPlugin::class)
-            .withFile("build/jacoco/other.exec", "Some content")
+            .withFile("build/jacoco/test.exec", "Some test content")
+            .withFile("build/jacoco/other.exec", "Some other content")
             .build()
 
         // expect
@@ -23,6 +24,23 @@ internal class JacocoConfigurationTest {
             assertThat(it.reports.html.isEnabled).isEqualTo(true)
             assertThat(it.executionData.files).contains(
                 project.buildDir.resolve("jacoco/test.exec"),
+                project.buildDir.resolve("jacoco/other.exec")
+            )
+        }
+    }
+
+    @Test
+    fun `should configure jacoco so test exec file is optional`() {
+        // given
+        val project = projectWithPlugins()
+            .withPlugins(JacocoPlugin::class)
+            .withFile("build/jacoco/other.exec", "Some other content")
+            .build()
+
+        // expect
+        val tasks = project.tasks.withType(JacocoReport::class.java).toList()
+        tasks.forEach {
+            assertThat(it.executionData.files).contains(
                 project.buildDir.resolve("jacoco/other.exec")
             )
         }
