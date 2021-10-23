@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.15] - 2021-11-24
+### Changed
+- Republish because of script failure
+
 ## [0.1.14] - 2021-11-24
 ### Changed
 - Fix jacocoReport when project does not have unit tests

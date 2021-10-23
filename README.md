@@ -63,8 +63,8 @@ tasks.withType(KotlinCompile) {
 jacocoTestReport {
     executionData(fileTree(project.buildDir).include("jacoco/*.exec"))
     reports {
-        xml.enabled = true
-        html.enabled = true
+        xml.required = true
+        html.required = true
     }
 }
 
