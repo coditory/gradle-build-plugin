@@ -8,10 +8,9 @@ import org.gradle.api.plugins.JavaPlugin
 
 open class BuildPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        if (!project.plugins.hasPlugin(JavaPlugin::class.java)) {
-            project.plugins.apply(JavaPlugin::class.java)
+        if (project.plugins.hasPlugin(JavaPlugin::class.java)) {
+            setupPlugin(project)
         }
-        setupPlugin(project)
     }
 
     private fun setupPlugin(project: Project) {

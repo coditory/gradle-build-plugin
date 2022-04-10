@@ -1,13 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "1.6.20"
     id("jacoco")
     id("com.github.kt3k.coveralls") version "2.12.0"
-    id("com.gradle.plugin-publish") version "0.16.0"
+    id("com.gradle.plugin-publish") version "1.0.0-rc-1"
     id("java-gradle-plugin")
     id("maven-publish")
-    id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 }
 
 repositories {
@@ -16,20 +16,20 @@ repositories {
 }
 
 ktlint {
-    version.set("0.42.1")
+    version.set("0.45.2")
 }
 
 dependencies {
     implementation(gradleApi())
     implementation("com.coditory.gradle:manifest-plugin:0.1.14")
     implementation("com.coditory.gradle:integration-test-plugin:1.3.0")
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
+    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
 
-    testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
-    testImplementation("org.assertj:assertj-core:3.21.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
+    testImplementation("org.assertj:assertj-core:3.22.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
 }
 
 group = "com.coditory.gradle"
@@ -44,15 +44,15 @@ tasks.withType<Test> {
 
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
         allWarningsAsErrors = true
     }
 }
 
 tasks.jacocoTestReport {
     reports {
-        xml.isEnabled = true
-        html.isEnabled = true
+        xml.required.set(true)
+        html.required.set(true)
     }
 }
 
@@ -65,6 +65,7 @@ gradlePlugin {
         create("buildPlugin") {
             id = "com.coditory.build"
             implementationClass = "com.coditory.gradle.build.BuildPlugin"
+            description = "Contains standard configuration for java based projects"
         }
     }
 }
@@ -72,12 +73,5 @@ gradlePlugin {
 pluginBundle {
     website = "https://github.com/coditory/gradle-build-plugin"
     vcsUrl = "https://github.com/coditory/gradle-build-plugin"
-    description = "Contains standard configuration for java based projects"
     tags = listOf("java build")
-
-    (plugins) {
-        "buildPlugin" {
-            displayName = "Build plugin"
-        }
-    }
 }

@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.16] - 2022-04-10
+### Changed
+- Update dependencies
+- Don't automatically activate Java plugin
+
 ## [0.1.15] - 2021-11-24
 ### Changed
 - Republish because of script failure
