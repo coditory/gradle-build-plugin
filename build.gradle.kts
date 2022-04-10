@@ -65,6 +65,7 @@ gradlePlugin {
         create("buildPlugin") {
             id = "com.coditory.build"
             implementationClass = "com.coditory.gradle.build.BuildPlugin"
+            displayName = "Coditory Build Plugin"
             description = "Contains standard configuration for java based projects"
         }
     }
