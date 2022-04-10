@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.17] - 2022-04-10
+### Changed
+- Add default configuration for Detekt
+- Use better way to register plugin modifiers
+
 ## [0.1.16] - 2022-04-10
 ### Changed
 - Update dependencies
@@ -53,7 +58,9 @@
 ### Changed
 - Update manifest plugin.
 
-[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.14...HEAD
+[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.16...HEAD
+[0.1.16]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14
+[0.1.15]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14
 [0.1.14]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14
 [0.1.13]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.13
 [0.1.12]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.12

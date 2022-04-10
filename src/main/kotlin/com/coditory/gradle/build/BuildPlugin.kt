@@ -21,6 +21,7 @@ open class BuildPlugin : Plugin<Project> {
         CompilationConfiguration.configure(project)
         JavadocConfiguration.configure(project)
         JacocoConfiguration.configure(project)
+        DetektConfiguration.configure(project)
     }
 
     companion object {

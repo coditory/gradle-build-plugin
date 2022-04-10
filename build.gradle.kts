@@ -24,8 +24,10 @@ dependencies {
     implementation("com.coditory.gradle:manifest-plugin:0.1.14")
     implementation("com.coditory.gradle:integration-test-plugin:1.3.0")
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
+    compileOnly("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0-RC2")
 
     testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
+    testImplementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0-RC2")
     testImplementation("org.assertj:assertj-core:3.22.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")

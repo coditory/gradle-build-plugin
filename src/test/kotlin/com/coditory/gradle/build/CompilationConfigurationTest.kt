@@ -20,6 +20,10 @@ internal class CompilationConfigurationTest {
         val tasks = project.tasks.withType(JavaCompile::class.java).toList()
         assertThat(tasks).isNotEmpty
         tasks.forEach {
+            assertThat(it.sourceCompatibility)
+                .isEqualTo("17")
+            assertThat(it.targetCompatibility)
+                .isEqualTo("17")
             assertThat(it.options.encoding)
                 .isEqualTo("UTF-8")
             assertThat(it.options.compilerArgs)
@@ -55,7 +59,7 @@ internal class CompilationConfigurationTest {
         assertThat(tasks).isNotEmpty
         tasks.forEach {
             assertThat(it.kotlinOptions.jvmTarget)
-                .isEqualTo("11")
+                .isEqualTo("17")
             assertThat(it.kotlinOptions.allWarningsAsErrors)
                 .isEqualTo(true)
         }
