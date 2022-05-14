@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.18] - 2022-05-14
+### Changed
+- Updated coditory dependencies
+
 ## [0.1.17] - 2022-04-10
 ### Changed
 - Add default configuration for Detekt
@@ -58,15 +62,17 @@
 ### Changed
 - Update manifest plugin.
 
-[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.16...HEAD
-[0.1.16]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14
-[0.1.15]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14
-[0.1.14]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14
-[0.1.13]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.13
-[0.1.12]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.12
-[0.1.11]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.11
-[0.1.10]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.10
-[0.1.9]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.9
-[0.1.8]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.8
-[0.1.7]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.7
+[Unreleased]: https://github.com/coditory/gradle-build-plugin/compare/v0.1.18...HEAD
+[0.1.18]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.17...v0.1.18
+[0.1.17]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.16...v0.1.17
+[0.1.16]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.15...v0.1.16
+[0.1.15]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.14...v0.1.15
+[0.1.14]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.13...v0.1.14
+[0.1.13]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.12...v0.1.13
+[0.1.12]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.12...v0.1.12
+[0.1.11]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.10...v0.1.11
+[0.1.10]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.9...v0.1.10
+[0.1.9]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.8...v0.1.9
+[0.1.8]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.7...v0.1.8
+[0.1.7]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/coditory/gradle-build-plugin/releases/tag/v0.1.6

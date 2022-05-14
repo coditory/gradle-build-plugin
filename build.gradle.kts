@@ -4,7 +4,7 @@ plugins {
     kotlin("jvm") version "1.6.20"
     id("jacoco")
     id("com.github.kt3k.coveralls") version "2.12.0"
-    id("com.gradle.plugin-publish") version "1.0.0-rc-1"
+    id("com.gradle.plugin-publish") version "1.0.0-rc-2"
     id("java-gradle-plugin")
     id("maven-publish")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
@@ -21,13 +21,13 @@ ktlint {
 
 dependencies {
     implementation(gradleApi())
-    implementation("com.coditory.gradle:manifest-plugin:0.1.14")
-    implementation("com.coditory.gradle:integration-test-plugin:1.3.0")
+    implementation("com.coditory.gradle:manifest-plugin:0.2.0")
+    implementation("com.coditory.gradle:integration-test-plugin:1.4.0")
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
-    compileOnly("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0-RC2")
+    compileOnly("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0")
 
     testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
-    testImplementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0-RC2")
+    testImplementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0")
     testImplementation("org.assertj:assertj-core:3.22.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
