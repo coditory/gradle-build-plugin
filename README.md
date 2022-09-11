@@ -61,6 +61,10 @@ tasks.withType(KotlinCompile) {
     kotlinOptions.allWarningsAsErrors = true
 }
 
+ktlint {
+    version.set("0.45.2")
+}
+
 // make Jacoco report combine all types of tests
 jacocoTestReport {
     executionData(fileTree(project.buildDir).include("jacoco/*.exec"))
