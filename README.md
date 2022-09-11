@@ -1,8 +1,7 @@
 # Build Gradle Plugin
-[![Build Status](https://github.com/coditory/gradle-build-plugin/workflows/Build/badge.svg?branch=master)](https://github.com/coditory/gradle-build-plugin/actions?query=workflow%3ABuild+branch%3Amaster)
-[![Coverage Status](https://coveralls.io/repos/github/coditory/gradle-build-plugin/badge.svg?branch=master)](https://coveralls.io/github/coditory/gradle-build-plugin?branch=master)
+[![Build](https://github.com/coditory/gradle-build-plugin/actions/workflows/build.yml/badge.svg)](https://github.com/coditory/gradle-build-plugin/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/coditory/gradle-build-plugin/badge.svg)](https://coveralls.io/github/coditory/gradle-build-plugin)
 [![Gradle Plugin Portal](https://img.shields.io/badge/Plugin_Portal-v0.1.18-green.svg)](https://plugins.gradle.org/plugin/com.coditory.build)
-[![Join the chat at https://gitter.im/coditory/gradle-build-plugin](https://badges.gitter.im/coditory/gradle-build-plugin.svg)](https://gitter.im/coditory/gradle-integration-test-plugin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This plugin applies a typical configuration for Coditory JVM projects:
 - Adds [manifest generation](https://github.com/coditory/gradle-manifest-plugin)
@@ -33,14 +32,17 @@ repositories {
 tasks.withType(Test) {
     useJUnitPlatform()
     testLogging {
-        exceptionFormat = 'full'
-        events = ['passed', 'skipped', 'failed']
+        exceptionFormat = "full"
+        events = ["passed", "skipped", "failed"]
     }
 }
 
 tasks.withType(JavaCompile) {
+    // by default target newest LTS JVM
+    sourceCompatibility = "17"
+    targetCompatibility = "17"
     // make all test/main builds use UTF-8
-    options.encoding = 'UTF-8'
+    options.encoding = "UTF-8"
     // produce error on lint problems
     options.compilerArgs << "-Werror"
     options.compilerArgs << "-Xlint"
@@ -49,12 +51,12 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(GroovyCompile) {
     // make all test/main builds use UTF-8
-    groovyOptions.encoding = 'UTF-8'
+    groovyOptions.encoding = "UTF-8"
 }
 
 tasks.withType(KotlinCompile) {
     // by default target newest LTS JVM
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "17"
     // produce errors on warnings
     kotlinOptions.allWarningsAsErrors = true
 }
@@ -76,7 +78,7 @@ javadoc {
     options {
         memberLevel = JavadocMemberLevel.PUBLIC
         outputLevel = JavadocOutputLevel.QUIET
-        encoding = 'UTF-8'
+        encoding = "UTF-8"
     }
 }
 ```
