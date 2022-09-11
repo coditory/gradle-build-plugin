@@ -6,6 +6,7 @@ import org.gradle.api.tasks.SourceSet
 import org.gradle.api.tasks.javadoc.Javadoc
 import org.gradle.external.javadoc.JavadocMemberLevel
 import org.gradle.external.javadoc.JavadocOutputLevel
+import org.gradle.external.javadoc.StandardJavadocDocletOptions
 
 internal object JavadocConfiguration {
     fun configure(project: Project) {
@@ -16,9 +17,13 @@ internal object JavadocConfiguration {
                 it.classpath = main.compileClasspath
                 it.source = main.allJava
                 it.isFailOnError = false
-                it.options.outputLevel = JavadocOutputLevel.QUIET
-                it.options.memberLevel = JavadocMemberLevel.PUBLIC
-                it.options.encoding = "UTF-8"
+
+                val options = it.options as StandardJavadocDocletOptions
+                options.addBooleanOption("Xdoclint:none", true)
+                options.addStringOption("Xmaxwarns", "1")
+                options.outputLevel = JavadocOutputLevel.QUIET
+                options.memberLevel = JavadocMemberLevel.PUBLIC
+                options.encoding = "UTF-8"
             }
         }
     }

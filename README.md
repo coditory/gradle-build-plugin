@@ -76,6 +76,9 @@ javadoc {
     classpath = configurations.compileClasspath
     failOnError = false
     options {
+        this as StandardJavadocDocletOptions
+        addBooleanOption("Xdoclint:none", true)
+        addStringOption("Xmaxwarns", "1")
         memberLevel = JavadocMemberLevel.PUBLIC
         outputLevel = JavadocOutputLevel.QUIET
         encoding = "UTF-8"
