@@ -26,7 +26,7 @@ dependencies {
 
     implementation(gradleApi())
     implementation("com.coditory.gradle:manifest-plugin:0.2.0")
-    implementation("com.coditory.gradle:integration-test-plugin:1.4.0")
+    implementation("com.coditory.gradle:integration-test-plugin:1.4.2")
     compileOnly(kotlinGradlePlugin)
     compileOnly(ktlintPlugin)
     compileOnly(detectPlugin)
