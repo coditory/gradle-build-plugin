@@ -16,18 +16,24 @@ repositories {
 }
 
 ktlint {
-    version.set("0.47.1")
+    version.set("0.45.2")
 }
 
 dependencies {
+    val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20"
+    val ktlintPlugin = "org.jlleitschuh.gradle:ktlint-gradle:11.0.0"
+    val detectPlugin = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.21.0"
+
     implementation(gradleApi())
     implementation("com.coditory.gradle:manifest-plugin:0.2.0")
     implementation("com.coditory.gradle:integration-test-plugin:1.4.0")
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
-    compileOnly("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.21.0")
+    compileOnly(kotlinGradlePlugin)
+    compileOnly(ktlintPlugin)
+    compileOnly(detectPlugin)
 
-    testImplementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
-    testImplementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.21.0")
+    testImplementation(kotlinGradlePlugin)
+    testImplementation(ktlintPlugin)
+    testImplementation(detectPlugin)
     testImplementation("org.assertj:assertj-core:3.23.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.0")

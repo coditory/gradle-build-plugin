@@ -99,7 +99,7 @@ jobs:
         if: inputs.publish != 'SKIP'
         uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: 17
           cache: gradle
           distribution: temurin
 
