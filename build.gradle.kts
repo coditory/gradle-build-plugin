@@ -25,7 +25,7 @@ dependencies {
     val detectPlugin = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.21.0"
 
     implementation(gradleApi())
-    implementation("com.coditory.gradle:manifest-plugin:0.2.0")
+    implementation("com.coditory.gradle:manifest-plugin:0.2.1")
     implementation("com.coditory.gradle:integration-test-plugin:1.4.0")
     compileOnly(kotlinGradlePlugin)
     compileOnly(ktlintPlugin)
