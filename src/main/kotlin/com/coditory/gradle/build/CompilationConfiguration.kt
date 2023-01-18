@@ -3,6 +3,7 @@ package com.coditory.gradle.build
 import org.gradle.api.Project
 import org.gradle.api.tasks.compile.GroovyCompile
 import org.gradle.api.tasks.compile.JavaCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 internal object CompilationConfiguration {
     fun configure(project: Project) {
@@ -15,8 +16,6 @@ internal object CompilationConfiguration {
 
     private fun configureJavaCompilation(project: Project) {
         project.tasks.withType(JavaCompile::class.java) {
-            it.sourceCompatibility = Versions.JVM_VERSION
-            it.targetCompatibility = Versions.JVM_VERSION
             it.options.encoding = "UTF-8"
             it.options.compilerArgs.addAll(
                 listOf(
@@ -39,8 +38,7 @@ internal object CompilationConfiguration {
     }
 
     private fun configureKotlinCompilation(project: Project) {
-        project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java) {
-            it.kotlinOptions.jvmTarget = Versions.JVM_VERSION
+        project.tasks.withType(KotlinCompile::class.java) {
             it.kotlinOptions.allWarningsAsErrors = true
         }
     }

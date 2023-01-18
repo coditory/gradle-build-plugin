@@ -14,11 +14,9 @@ internal object DetektConfiguration {
     private fun configureOnPluginEnabled(project: Project) {
         val detektExtension = project.extensions.getByType(DetektExtension::class.java)
         detektExtension.buildUponDefaultConfig = true
-        detektExtension.config.setFrom(project.fileTree(project.projectDir).include("/config/detekt/config.yml"))
+        val configFile = project.fileTree(project.projectDir).include("/config/detekt/config.yml")
+        detektExtension.config.setFrom(configFile)
         project.tasks.withType(Detekt::class.java) { task ->
-            // task.buildUponDefaultConfig = true
-            // task.config.setFrom(project.fileTree(project.projectDir).include("/config/detekt/config.yml"))
-            task.jvmTarget = Versions.JVM_VERSION
             task.reports.apply {
                 html.required.set(true)
                 xml.required.set(true)

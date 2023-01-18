@@ -11,6 +11,8 @@ internal object KtlintConfiguration {
     }
 
     private fun configureOnPluginEnabled(project: Project) {
+        // don't update ktlint version until:
+        // https://github.com/JLLeitschuh/ktlint-gradle/issues/589
         val ktlintExtension = project.extensions.getByType(KtlintExtension::class.java)
         ktlintExtension.version.set("0.45.2")
     }

@@ -22,7 +22,6 @@ internal class DetektConfigurationTest {
         assertThat(tasks).isNotEmpty
         tasks.forEach {
             assertThat(it.buildUponDefaultConfig).isEqualTo(true)
-            assertThat(it.jvmTarget).isEqualTo("17")
             assertThat(it.reports.xml.required.get()).isEqualTo(true)
             assertThat(it.reports.html.required.get()).isEqualTo(true)
             assertThat(it.config.files).contains(

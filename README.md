@@ -38,9 +38,6 @@ tasks.withType(Test) {
 }
 
 tasks.withType(JavaCompile) {
-    // by default target newest LTS JVM
-    sourceCompatibility = "17"
-    targetCompatibility = "17"
     // make all test/main builds use UTF-8
     options.encoding = "UTF-8"
     // produce error on lint problems
@@ -55,12 +52,12 @@ tasks.withType(GroovyCompile) {
 }
 
 tasks.withType(KotlinCompile) {
-    // by default target newest LTS JVM
-    kotlinOptions.jvmTarget = "17"
     // produce errors on warnings
     kotlinOptions.allWarningsAsErrors = true
 }
 
+// the most recent ktlint version (that does not cause problems)
+// https://github.com/JLLeitschuh/ktlint-gradle/issues/589
 ktlint {
     version.set("0.45.2")
 }
@@ -74,7 +71,7 @@ jacocoTestReport {
     }
 }
 
-// defaults for Javadoc
+// make javadoc less strict to limit noisy logs
 javadoc {
     source = sourceSets.main.allJava
     classpath = configurations.compileClasspath
@@ -86,6 +83,30 @@ javadoc {
         memberLevel = JavadocMemberLevel.PUBLIC
         outputLevel = JavadocOutputLevel.QUIET
         encoding = "UTF-8"
+    }
+}
+```
+
+You're responsible to setup jvm toolchains:
+```
+// build.gradle for java:
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+// build.gradle.kts for kotlin >=1.8:
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+}
+
+// build.gradle.kts of for kotlin <1.8
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(11))
     }
 }
 ```
