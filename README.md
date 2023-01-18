@@ -1,7 +1,7 @@
 # Build Gradle Plugin
 [![Build](https://github.com/coditory/gradle-build-plugin/actions/workflows/build.yml/badge.svg)](https://github.com/coditory/gradle-build-plugin/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/github/coditory/gradle-build-plugin/badge.svg)](https://coveralls.io/github/coditory/gradle-build-plugin)
-[![Gradle Plugin Portal](https://img.shields.io/badge/Plugin_Portal-v0.1.19-green.svg)](https://plugins.gradle.org/plugin/com.coditory.build)
+[![Gradle Plugin Portal](https://img.shields.io/badge/Plugin_Portal-v0.1.20-green.svg)](https://plugins.gradle.org/plugin/com.coditory.build)
 
 This plugin applies a typical configuration for Coditory JVM projects:
 - Adds [manifest generation](https://github.com/coditory/gradle-manifest-plugin)
@@ -14,7 +14,7 @@ Add to your `build.gradle`:
 
 ```gradle
 plugins {
-  id 'com.coditory.build' version '0.1.19'
+  id 'com.coditory.build' version '0.1.20'
 }
 ```
 
