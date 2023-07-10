@@ -18,7 +18,7 @@ ktlint {
 }
 
 dependencies {
-    val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22"
+    val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"
     val ktlintPlugin = "org.jlleitschuh.gradle:ktlint-gradle:11.4.2"
     val detectPlugin = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.0"
 
